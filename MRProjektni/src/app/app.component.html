@@ -1,0 +1,34 @@
+<ion-app>
+  <ion-menu side="start" contentId="main">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <ion-title>Meni</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none">
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-icon name="person-circle" slot="start" color="secondary"></ion-icon>
+            <ion-label> Moj profil</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/rezervacija">
+            <ion-icon name="document-text" slot="start" color="secondary"></ion-icon>
+            <!--<a href="#predstave">Predstave</a>-->
+            <ion-label>Rezervacija ulaznica</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item routerLink="/log-in">
+            <ion-icon name="log-out" slot="start" color="secondary"></ion-icon>
+            <ion-label> LogOut</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
