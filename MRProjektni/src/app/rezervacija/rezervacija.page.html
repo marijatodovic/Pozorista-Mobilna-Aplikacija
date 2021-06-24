@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="success" defaultHref="/pozorista"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Rezervacija ulaznica</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Izaberite pozoriste:</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+          <ion-item color="tertiary">
+            <ion-label>Pozoriste:</ion-label>
+            <ion-select placeholder="Izaberi pozoriste">
+              <ion-select-option value="1">Narodno pozoriste</ion-select-option>
+              <ion-select-option value="2">Madlenianum</ion-select-option>
+              <ion-select-option value="3">JDP</ion-select-option>
+              <ion-select-option value="4">Atelje 212</ion-select-option>
+              <ion-select-option value="5">Zvezdara</ion-select-option>
+              <ion-select-option value="6">Terazije</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>Izaberite datum:</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item color="tertiary">
+          <ion-label position="floating">Dan/Mesec</ion-label>
+          <ion-datetime displayFormat="DD/MM" min="2021-01-01" max="2030-01-01"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>Izaberi predstavu</h1>
+      </ion-col>
+      <ion-col>
+        <ion-item></ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>
