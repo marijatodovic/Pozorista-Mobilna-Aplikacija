@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { PozoristaPageRoutingModule } from './pozorista-routing.module';
 
 import { PozoristaPage } from './pozorista.page';
+import {NjuzleterComponent} from "./njuzleter/njuzleter.component";
+import {KomentarComponent} from "./komentar/komentar.component";
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { PozoristaPage } from './pozorista.page';
     IonicModule,
     PozoristaPageRoutingModule
   ],
-  declarations: [PozoristaPage]
+  declarations: [PozoristaPage, NjuzleterComponent, KomentarComponent],
+  entryComponents: [NjuzleterComponent]
 })
 export class PozoristaPageModule {}

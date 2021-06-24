@@ -5,6 +5,11 @@
       <ion-menu-button color="success"></ion-menu-button>
     </ion-buttons>
     <ion-title color="success">Pozorišta</ion-title>
+    <ion-buttons slot="end">
+      <ion-fab-button size="sm" color="secondary" (click)="openModal()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -163,6 +168,19 @@
         </ion-card>
 
       </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>Komentari:</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <app-komentar *ngFor="let pozoriste of pozorista" [pozoriste]="pozoriste"></app-komentar>
+        </ion-list>
+      </ion-col>
+
     </ion-row>
 
 
