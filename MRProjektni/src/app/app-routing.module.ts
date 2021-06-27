@@ -53,6 +53,7 @@ const routes: Routes = [
     path: 'rezervacija',
     loadChildren: () => import('./rezervacija/rezervacija.module').then( m => m.RezervacijaPageModule)
   },
+
 ];
 
 @NgModule({

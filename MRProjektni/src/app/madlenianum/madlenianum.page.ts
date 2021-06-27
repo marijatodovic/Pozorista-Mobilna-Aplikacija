@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuController} from "@ionic/angular";
+import {AlertController, MenuController} from "@ionic/angular";
 
 @Component({
   selector: 'app-madlenianum',
@@ -8,12 +8,32 @@ import {MenuController} from "@ionic/angular";
 })
 export class MadlenianumPage implements OnInit {
 
-  constructor(private menuCtrl: MenuController) { }
+  constructor(private alertController: AlertController) { }
 
-  openMenu() {
-    this.menuCtrl.open();
-  }
+
+
   ngOnInit() {
   }
 
+  openAlert(){
+    this.alertController.create({
+      header: 'Sacuvaj predstavu',
+      message: 'Da li zelite da sacuvate ovu predstavu?',
+      buttons: [
+        {
+          text: 'Da',
+          handler: () => {
+            console.log('Predstava je sacuvana.');
+          },
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Predstava nije sacuvana.');
+          },
+        },
+      ],
+    }).then((alert) => alert.present());
+  }
 }

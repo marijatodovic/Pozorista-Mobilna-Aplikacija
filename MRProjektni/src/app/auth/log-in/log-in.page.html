@@ -30,6 +30,9 @@
       </ion-row>
       <ion-row>
         <ion-col offset="3" size="6">
+          <div class="ion-text-center">
+            <ion-spinner color="tertiary" *ngIf="isLoading" duration="30"></ion-spinner>
+          </div>
           <ion-button type="submit" fill="solid" size="small" color="secondary" expand="block" [disabled]="logInForm.invalid">Uloguj Se</ion-button>
         </ion-col>
       </ion-row>

@@ -1,4 +1,5 @@
-export interface Pozorista {
-  id: string;
-  text: string;
+export class Pozorista {
+  constructor(public id: string, public text: string, public userId: string) {
+  }
+
 }

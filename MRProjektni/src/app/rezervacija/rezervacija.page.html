@@ -8,18 +8,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <h1>Izaberite pozoriste:</h1>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
+  <form #rezForm = "ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h1>Izaberite pozoriste:</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
 
           <ion-item color="tertiary">
             <ion-label>Pozoriste:</ion-label>
-            <ion-select placeholder="Izaberi pozoriste">
+            <ion-select ngModel name="izbor" required izbor #izbor = "ngModel" placeholder="Izaberi pozoriste" >
               <ion-select-option value="1">Narodno pozoriste</ion-select-option>
               <ion-select-option value="2">Madlenianum</ion-select-option>
               <ion-select-option value="3">JDP</ion-select-option>
@@ -28,31 +29,103 @@
               <ion-select-option value="6">Terazije</ion-select-option>
             </ion-select>
           </ion-item>
+          <ion-item lines="none" *ngIf="izbor.invalid && izbor.touched" >
+            <ion-label>Izaberite pozoriste</ion-label>
+          </ion-item>
+          <ion-item *ngIf=" izbor.value == 1">
+            <ion-label>Izaberi predstavu</ion-label>
+            <ion-select >
+              <ion-select-option value="1">Aida</ion-select-option>
+              <ion-select-option value="2">Karmen</ion-select-option>
+              <ion-select-option value="3">Kopelija</ion-select-option>
+              <ion-select-option value="4">Don Kihot</ion-select-option>
+              <ion-select-option value="5">Bela Kafa</ion-select-option>
+              <ion-select-option value="6">Izbiracica</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf=" izbor.value == 2">
+            <ion-label>Izaberi predstavu</ion-label>
+            <ion-select >
+              <ion-select-option value="1">Nana</ion-select-option>
+              <ion-select-option value="2">Mitrovdan</ion-select-option>
+              <ion-select-option value="3">Grand Hotel</ion-select-option>
+              <ion-select-option value="4">Hazarski recnik</ion-select-option>
+              <ion-select-option value="5">Manon Lesko</ion-select-option>
+              <ion-select-option value="6">Orfej</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf=" izbor.value == 3">
+            <ion-label>Izaberi predstavu</ion-label>
+            <ion-select >
+              <ion-select-option value="1">Pucina</ion-select-option>
+              <ion-select-option value="2">Siroka zemlja</ion-select-option>
+              <ion-select-option value="3">Lorencaco</ion-select-option>
+              <ion-select-option value="4">Kaspar</ion-select-option>
+              <ion-select-option value="5">Moj muz</ion-select-option>
+              <ion-select-option value="6">Kralj Betajnove</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf=" izbor.value == 4">
+            <ion-label>Izaberi predstavu</ion-label>
+            <ion-select >
+              <ion-select-option value="1">Pred svitanje</ion-select-option>
+              <ion-select-option value="2">Sin</ion-select-option>
+              <ion-select-option value="3">Art</ion-select-option>
+              <ion-select-option value="4">Gestimanski vrt</ion-select-option>
+              <ion-select-option value="5">Petrijin venac</ion-select-option>
+              <ion-select-option value="6">Homo faber</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf=" izbor.value == 5">
+            <ion-label>Izaberi predstavu</ion-label>
+            <ion-select >
+              <ion-select-option value="1">Tre sorele</ion-select-option>
+              <ion-select-option value="2">Arzamas</ion-select-option>
+              <ion-select-option value="3">Feliks</ion-select-option>
+              <ion-select-option value="4">Hipnoza jedne ljubavi</ion-select-option>
+              <ion-select-option value="5">Korespodencija</ion-select-option>
+              <ion-select-option value="6">Klaustrofobicna komedija</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf=" izbor.value == 6">
+            <ion-label>Izaberi predstavu</ion-label>
+            <ion-select >
+              <ion-select-option value="1">Cigani lete u nebo</ion-select-option>
+              <ion-select-option value="2">Cikago</ion-select-option>
+              <ion-select-option value="3">Zona Zamfirova</ion-select-option>
+              <ion-select-option value="4">Mister Dolar</ion-select-option>
+              <ion-select-option value="5">Sa druge strane jastuka</ion-select-option>
+              <ion-select-option value="6">Neki to vole vruce</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h1>Izaberite datum:</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item color="tertiary">
+            <ion-label position="floating">Dan/Mesec</ion-label>
+            <ion-datetime ngModel name="datum" required datum #datum = "ngModel" (ionChange)="promena($event)" displayFormat="DD/MMMM" min="2021-01-01" max="2022-01-01"></ion-datetime>
+          </ion-item>
+          <ion-item lines="none" *ngIf="datum.invalid && datum.touched" >
+            <ion-label>Izaberite datum</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="3" size="6">
+          <ion-button type="submit" fill="solid" size="small" color="tertiary" expand="block" [disabled]="rezForm.invalid" (click)="openAlert()">Dalje</ion-button>
+        </ion-col>
+      </ion-row>
 
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h1>Izaberite datum:</h1>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item color="tertiary">
-          <ion-label position="floating">Dan/Mesec</ion-label>
-          <ion-datetime displayFormat="DD/MM" min="2021-01-01" max="2030-01-01"></ion-datetime>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h1>Izaberi predstavu</h1>
-      </ion-col>
-      <ion-col>
-        <ion-item></ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    </ion-grid>
+
+  </form>
+
 
 
 

@@ -7,12 +7,12 @@
     </ion-header>
     <ion-content>
       <ion-list lines="none">
-        <ion-menu-toggle>
+        <!--<ion-menu-toggle>
           <ion-item>
             <ion-icon name="person-circle" slot="start" color="secondary"></ion-icon>
             <ion-label> Moj profil</ion-label>
           </ion-item>
-        </ion-menu-toggle>
+        </ion-menu-toggle>-->
         <ion-menu-toggle>
           <ion-item routerLink="/rezervacija">
             <ion-icon name="document-text" slot="start" color="secondary"></ion-icon>
@@ -21,7 +21,7 @@
           </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item routerLink="/log-in">
+          <ion-item (click)="onLogOut()">
             <ion-icon name="log-out" slot="start" color="secondary"></ion-icon>
             <ion-label> LogOut</ion-label>
           </ion-item>
